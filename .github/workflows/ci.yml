@@ -1,6 +1,6 @@
 name: CI Pipeline
 
-# ✅ Give the workflow permission to mint an OIDC token for Codecov
+# Needed for Codecov OIDC
 permissions:
   contents: read
   id-token: write
@@ -17,12 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/custom-setup
-      - run: npm run lint
-      # optional auto-fix to reduce flaky fails
-      - name: Prettier auto-fix
-        run: npm run format:fix
+      - name: ESLint
+        run: npm run lint
+      - name: Prettier auto-fix (no script needed)
+        run: npx prettier --write .
       - name: Prettier check
-        run: npm run format
+        run: npx prettier --check .
 
   test:
     runs-on: ubuntu-latest
@@ -35,7 +35,6 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           verbose: true
-        # No token needed when OIDC is enabled by the permissions above
 
   build:
     runs-on: ubuntu-latest
