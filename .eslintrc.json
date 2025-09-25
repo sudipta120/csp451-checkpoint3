@@ -1,0 +1,12 @@
+{
+  "env": { "browser": false, "es2021": true, "node": true, "jest": true },
+  "extends": ["eslint:recommended"],
+  "parserOptions": { "ecmaVersion": "latest", "sourceType": "script" },
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-undef": "error",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
+  },
+  "ignorePatterns": ["dist/**", "coverage/**", "node_modules/**"]
+}

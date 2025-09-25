@@ -1,0 +1,73 @@
+{
+  "name": "csp451-checkpoint3",
+  "version": "1.0.0",
+  "description": "Week 3: GitHub Actions and CI/CD Automation",
+  "private": false,
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "test": "jest --coverage",
+    "build": "node scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudipta120/csp451-checkpoint3.git"
+  },
+  "keywords": [
+    "github-actions",
+    "ci",
+    "cd",
+    "jest",
+    "eslint",
+    "prettier",
+    "codecov"
+  ],
+  "author": "Sudipta Banik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudipta120/csp451-checkpoint3/issues"
+  },
+  "homepage": "https://github.com/sudipta120/csp451-checkpoint3#readme",
+  "devDependencies": {
+    "codecov": "^3.8.3",
+    "eslint": "^9.36.0",
+    "jest": "^30.1.3",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {},
+  "jest": {
+    "testEnvironment": "node",
+    "coverageReporters": ["json", "lcov", "text", "clover"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "eslintConfig": {
+    "env": { "browser": false, "es2021": true, "node": true, "jest": true },
+    "extends": ["eslint:recommended"],
+    "parserOptions": { "ecmaVersion": "latest", "sourceType": "script" },
+    "rules": {
+      "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "no-undef": "error",
+      "semi": ["error", "always"],
+      "quotes": ["error", "single"]
+    },
+    "ignorePatterns": ["dist/**", "coverage/**", "node_modules/**"]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "none",
+    "printWidth": 100
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
