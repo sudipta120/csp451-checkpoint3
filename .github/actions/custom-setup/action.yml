@@ -1,7 +1,7 @@
-name: "Custom Setup"
-description: "Reusable Node.js setup + install"
+name: 'Custom Setup'
+description: 'Reusable Node.js setup + install'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: actions/setup-node@v4
       with:
